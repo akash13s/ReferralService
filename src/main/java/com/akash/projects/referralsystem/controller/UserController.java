@@ -47,7 +47,7 @@ public class UserController {
 
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@Valid @RequestBody User user, BindingResult result) {
-        userValidator.validate(user, result);
+        userValidator. validate(user, result);
         ResponseEntity<?> errorsToResponse = mapValidationErrorService.mapErrorsToResponse(result);
         if (errorsToResponse!=null) {
             return errorsToResponse;

@@ -14,8 +14,25 @@ public class CustomUserExceptionHandler {
     @ExceptionHandler
     public final ResponseEntity<Object> handleUsernameAlreadyExists(UsernameAlreadyExistsException usernameAlreadyExistsException,
                                                                     WebRequest request) {
-        UsernameAlreadyExistsResponse usernameAlreadyExistsResponse = new UsernameAlreadyExistsResponse
+        CustomUserExceptionResponse usernameAlreadyExistsResponse = new CustomUserExceptionResponse
                 (usernameAlreadyExistsException.getMessage());
         return new ResponseEntity<Object>(usernameAlreadyExistsException, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler
+    public final ResponseEntity<Object> handleUserAlreadyEnrolledInReferralSystem(UserAlreadyEnrolledInReferralSystemException
+            usernameAlreadyExistsException, WebRequest request) {
+        CustomUserExceptionResponse userAlreadyEnrolledInReferralSystemResponse =
+                new CustomUserExceptionResponse(usernameAlreadyExistsException.getMessage());
+        return new ResponseEntity<Object>(userAlreadyEnrolledInReferralSystemResponse, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler
+    public final ResponseEntity<Object> handleUserNotEnrolledInReferralSystem(UserNotEnrolledInReferralSystemException
+                                                                                          usernameAlreadyExistsException,
+                                                                              WebRequest request) {
+        CustomUserExceptionResponse userNotEnrolledInReferralSystemResponse =
+                new CustomUserExceptionResponse(usernameAlreadyExistsException.getMessage());
+        return new ResponseEntity<Object>(userNotEnrolledInReferralSystemResponse, HttpStatus.BAD_REQUEST);
     }
 }

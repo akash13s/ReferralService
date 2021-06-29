@@ -5,6 +5,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -32,10 +33,36 @@ public class User implements UserDetails {
     private String userReferralCode;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user", orphanRemoval = true)
-    private List<UserReferral> userReferralList;
+    private List<UserReferral> userReferralList = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user", orphanRemoval = true)
-    private List<UserMilestone> userMilestones;
+    private List<UserMilestone> userMilestones = new ArrayList<>();
+
+    private Long cashRewardOnSignup;
+
+    public List<UserReferral> getUserReferralList() {
+        return userReferralList;
+    }
+
+    public void setUserReferralList(List<UserReferral> userReferralList) {
+        this.userReferralList = userReferralList;
+    }
+
+    public List<UserMilestone> getUserMilestones() {
+        return userMilestones;
+    }
+
+    public void setUserMilestones(List<UserMilestone> userMilestones) {
+        this.userMilestones = userMilestones;
+    }
+
+    public Long getCashRewardOnSignup() {
+        return cashRewardOnSignup;
+    }
+
+    public void setCashRewardOnSignup(Long cashRewardOnSignup) {
+        this.cashRewardOnSignup = cashRewardOnSignup;
+    }
 
     public Long getId() {
         return id;

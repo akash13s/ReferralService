@@ -22,6 +22,6 @@ public class UserReferral {
     private Long referredUserId;
     private String referredUserEmail;
     private String signupReferralCode;
-    private String cashReward;
-
+    private Long cashRewardForReferrer;
+    private Long cashRewardForReferee;
 }
