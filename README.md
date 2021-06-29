@@ -24,4 +24,3 @@
 `git checkout master`
 
 ### Postman Collection
-https://documenter.getpostman.com/view/4847752/TzkyLfB4
